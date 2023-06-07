@@ -82,29 +82,42 @@
 		.fontsize {
             font-size: 12px;
 		}
+		nav ul {
+    list-style-type: none;
+  margin: 0 auto; /* Center the navigation */
+  padding: 16px;
+  overflow: hidden;
+  text-align: center;
+}
 
-		.taskbar {
-			color: #fff;
-			display: flex;
-			justify-content: center; /* centers the taskbar horizontally */
-			align-items: center; /* centers the taskbar vertically */
-		}
-		.taskbar a {
-			color: #fff;
-			text-decoration: none;
-			font-weight: bold;
+nav li {
+  display: inline-block; /* Display the list items horizontally */
+}
+
+nav li a {
+  display: block;
+  color: #fff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-weight: bold;
             font-size: 16px;
-			padding: 1%;
-		}
+}
+
+nav li a:hover {
+  background-color: #000000;
+}
     </style>
   </head>
   <body>
-	<div class="taskbar">
-		<a href="videos.html">Videos</a>
-		<a href="index.html">Home</a>
-		<a href="cat.html">Devonte's Cat</a>
-	</div>
-    <hr>
+	<nav>
+		<ul>
+		  <li><a href="cat.html">Devonte's Cat</a></li>
+		  <li><a href="index.html">Home</a></li>
+		  <li><a href="videos.html">Videos</a></li>
+		</ul>
+	  </nav>
+	<hr>
 	<header>
         <h1>Devonte's Cat</h1>
 	</header>
