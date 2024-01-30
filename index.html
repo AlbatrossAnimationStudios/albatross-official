@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Albatross Official - Videos</title>
+	<link rel="stylesheet" type="text/css" href="eevnp94y4nhv.css">
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+
+    <header>
+        <div id="logo">
+            <img src="logo.png" alt="Logo" width="100" height="50" class="logo"> <!-- Adjust the width and height as needed -->
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="#videos-section">Videos</a>
+            <a href="cat.html">Dev's Cat</a>
+            <a href="trailer.html">Our Trailer</a>
+            <!-- Add more pages as needed -->
+        </nav>
+    </header>
+
+    <div id="video-section">
+        <video id="video" autoplay loop muted>
+            <source src="background.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div id="content-section">
+        <p>&nbsp;</p>
+        <h1>About Albatross</h1>
+        <hr>
+        <p>Here at Albatross Animation Studios, we make awesome stop motion brickfilms and claymation. From a stop motion made on the highest mountain in Africa, to an entertaining series of teddy bear fight scenes. Albatross Animation Studios is cool. If you want to see great stop motion animations, this is your place. So Subscribe!</p>
+        <p>Animator of Albatross: wadams the Great</p>
+        <p>Website Developer: Mathias the Great</p>
+        <p><img class="mathiaslogo" src="mathiasicon.png"></p>
+        <a href="https://xiskander.github.io/heathen1127-official/" target="_blank" class="weblink">Mathias's Website</a>
+    </div>
+
+    <div id="videos-section">
+        <h1>Our Recent Videos</h1>
+        <hr>
+        <p>&nbsp;</p>
+        <div class="video-container"></div>
+        <p>&nbsp;</p>
+            <button id="load-more">Load More Videos</button>
+        <p>&nbsp;</p>
+        <hr>
+        <p>&nbsp;</p>
+        <p>&copy 2024 Albatross Animation Studios | Website Designed and Developed by Heathen1127.</p>
+        <p>&nbsp;</p>
+    </div>
+
+    <script>
+        const channelID = 'UC-j89BS3zaqk7pmAx4LfAIg';
+        const feedURL = `https://corsproxy.io/?https://www.youtube.com/feeds/videos.xml?channel_id=${channelID}`;
+        const videosContainer = document.querySelector('.video-container');
+        const loadMoreButton = document.getElementById('load-more');
+        let batchSize = 9;
+        let startIndex = 0;
+
+        async function fetchVideos(start, end) {
+            try {
+                const response = await fetch(feedURL);
+                const data = await response.text();
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(data, 'text/xml');
+                const entries = xmlDoc.getElementsByTagName('entry');
+
+                for (let i = start; i < end && i < entries.length; i++) {
+                    const videoEntry = entries[i];
+                    const videoId = videoEntry.getElementsByTagName('yt:videoId')[0].textContent;
+
+                    const videoCard = document.createElement('div');
+                    videoCard.className = 'video-card';
+
+                    const iframe = document.createElement('iframe');
+                    iframe.src = `https://www.youtube.com/embed/${videoId}`;
+                    iframe.title = 'YouTube video player';
+                    iframe.allowFullscreen = true;
+
+                    videoCard.appendChild(iframe);
+                    videosContainer.appendChild(videoCard);
+                }
+
+                startIndex = end;
+                if (startIndex >= entries.length) {
+                    loadMoreButton.style.display = 'none';
+                }
+            } catch (error) {
+                console.error('Error fetching YouTube feed:', error);
+            }
+        }
+
+        loadMoreButton.addEventListener('click', () => {
+            const endIndex = startIndex + batchSize;
+            fetchVideos(startIndex, endIndex);
+        });
+
+        fetchVideos(startIndex, startIndex + batchSize);
+    </script>
+
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+</script>
+
+
+</body>
+</html>

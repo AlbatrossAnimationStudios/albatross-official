@@ -1,0 +1,131 @@
+		body {
+			font-family: 'Neuropol X', sans-serif;
+			color: #fff;
+			text-align: center;
+			background-color: #333;
+        	background-size: cover;
+			margin: 0;
+			padding: 0;
+			text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+			background-image: url("background.png");
+			}
+        .video-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            }
+
+        video {
+            max-width: 100%;
+            max-height: 100%;
+            margin: auto;
+            }
+            footer {
+            color: #fff;
+            font-size: 16px;
+    padding: 16px;
+    text-align: center;
+		    }
+        .title {
+			font-size: 2em;
+			margin-top: 2em;
+            font-size: 24px;
+
+		    }
+        .title2 {
+			font-size: 2em;
+			margin-top: 2em;
+            font-size: 24px;
+
+		    }
+        .fontsize {
+            font-size: 12px;
+		    }
+        nav ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 16px;
+          overflow: hidden;
+          text-align: center;
+          display: flex;
+          justify-content: center; /* Center items horizontally */
+          align-items: center; /* Center items vertically */
+          flex-wrap: wrap;
+        }
+        
+        nav li {
+          display: inline-block;
+          margin-right: 10px;
+        }
+        
+        nav li a {
+          display: block;
+          color: #fff;
+          text-align: center;
+          padding: 14px 20px;
+          text-decoration: none;
+          font-weight: bold;
+          font-size: 16px;
+          transition: transform 0.3s, font-size 0.3s;
+        }
+        
+        nav li a:hover {
+          transform: scale(1.1);
+          font-size: 16px;
+          background-color: transparent;
+        }
+        
+        /* Media query for screens with a maximum width of 600px */
+        @media only screen and (max-width: 600px) {
+          nav li {
+            display: inline-block;
+            margin-bottom: 10px;
+          }
+        }  
+.container {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			height: 30vh;
+			color: #fff;
+            font-size: 24px;
+			}
+      .subscribe-btn {
+        background-color: #DF2E24;
+        border: none;
+        color: white;
+        padding: 18px 36px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 24px;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s ease, transform 0.3s, font-size 0.3s; /* Combine transition properties */
+      }
+      
+      .subscribe-btn:hover {
+        transform: scale(1.1); /* Increase size on hover */
+        font-size: 25px; /* Increase font size on hover */
+        background-color: #DF2E24;
+      }
+      
+.gif-background {
+  background-image: url("background.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1; 
+}
+      .content {
+        position: relative;
+        z-index: 1;
+        padding: 20px;
+        text-align: center;
+      }
